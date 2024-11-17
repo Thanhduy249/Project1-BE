@@ -314,6 +314,9 @@ let getProfileDoctorById = (inputId) => {
                     where: {
                         id: inputId
                     },
+                    attributes: {
+                        exclude: ['password']
+                    },
                     include: [
                         {
                             model: db.Markdown,
