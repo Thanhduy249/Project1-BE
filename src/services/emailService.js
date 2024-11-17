@@ -14,8 +14,14 @@ let sendSimpleEmail = async (dataSend) => {
         from: '"Xác nhận lịch khám bệnh" <duyduy20303@gmail.com>',
         to: dataSend.receiverEmail,
         subject: "Thông tin đặt lịch khám bệnh",
-        text: "Hello world?",
-        html: `
+        html: getBodyHTMLEmail(dataSend),
+    });
+}
+
+let getBodyHTMLEmail = (dataSend) => {
+    let result = ''
+    if (dataSend.language === 'vi') {
+        result = `
         <h3>Xin chào ${dataSend.patientName}!</h3>
         <p>Bạn nhận được email này vì đã đặt lịch khám bệnh trên trang web của chúng tôi</p>
         <p>Thông tin lịch khám bệnh:</p>
@@ -28,8 +34,12 @@ let sendSimpleEmail = async (dataSend) => {
         </div>
         
         <div>Xin trân trọng cảm ơn!</div>
-        `,
-    });
+        `
+    }
+    if (dataSend.language === 'en') {
+
+    }
+    return result
 }
 
 module.exports = {
