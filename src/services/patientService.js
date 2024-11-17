@@ -4,7 +4,7 @@ require('dotenv').config();
 let postBookAppointment = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
-            if (!data.email || !data.doctorId || !data.date) {
+            if (!data.email || !data.doctorId || !data.date || !data.timeType) {
                 resolve({
                     errCode: 1,
                     errMessage: 'Missing'
