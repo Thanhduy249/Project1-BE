@@ -30,16 +30,13 @@ let getBodyHTMLEmail = (dataSend) => {
 
         <p>Nếu các thông tin đã chính xác vui lòng click vào link dưới đây để xác nhận lịch khám:</p>
         <div>
-        <a href=${dataSend.redirectLink} target="_blank">Click here</a>
+        <a href= ${dataSend.redirectLink} target= "_blank">Click here</a>
         </div>
         
         <div>Xin trân trọng cảm ơn!</div>
         `
     }
-    if (dataSend.language === 'en') {
-
-    }
-    return result
+    return result;
 }
 
 module.exports = {
